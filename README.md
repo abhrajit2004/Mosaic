@@ -2,7 +2,7 @@
 
 https://github.com/user-attachments/assets/2aab26e5-f1bd-4e3a-a873-cf3c1bcfe0f8
 
-## Objective the project
+## Objective of the project
 Mosaic is a platform where you can create posts about mainly tech and other stuffs and share them with the world. You can also read posts created by other users and comment on them.
 
 ## Tech Stacks Used
