@@ -18,7 +18,6 @@ app.use(cors({
   exposedHeaders: ['auth-token'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   optionsSuccessStatus: 200,
-  preflightContinue: false,
 }));
 
 app.options('*', cors());
