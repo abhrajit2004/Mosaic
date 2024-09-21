@@ -12,7 +12,7 @@ const Posts = () => {
   const [posts, setPosts] = useState([])
   const navigate = useNavigate()
 
-  const host = import.meta.env.VITE_HOST || 3000;
+  const host = import.meta.env.VITE_HOST;
 
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const Posts = () => {
 
 
   const getPosts = async () => {
-    const response = await fetch(`http://localhost:${host}/api/posts/fetchposts`, {
+    const response = await fetch(`${host}/api/posts/fetchposts`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -40,7 +40,7 @@ const Posts = () => {
 
   const handlePost = async (e) => {
     e.preventDefault();
-    const response = await fetch(`http://localhost:${host}/api/posts/createpost`, {
+    const response = await fetch(`${host}/api/posts/createpost`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -65,7 +65,7 @@ const Posts = () => {
   }
 
   const handleDelete = async (id) => {
-    const response = await fetch(`http://localhost:${host}/api/posts/deletepost/${id}`, {
+    const response = await fetch(`${host}/api/posts/deletepost/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -91,7 +91,7 @@ const Posts = () => {
     setPost({ title: currentData[0].title, content: currentData[0].content })
     setPosts(posts.filter(post => post._id !== id))
 
-    const response = await fetch(`http://localhost:${host}/api/posts/updatepost/${id}`, {
+    const response = await fetch(`${host}/api/posts/updatepost/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

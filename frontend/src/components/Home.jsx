@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
 
-  const host = import.meta.env.VITE_HOST || 3000;
+  const host = import.meta.env.VITE_HOST;
 
   const navigate = useNavigate()
 
@@ -19,7 +19,7 @@ const Home = () => {
   }, [])
 
   const getAllPosts = async () => {
-    const response = await fetch(`http://localhost:${host}/api/posts/fetchallposts`, {
+    const response = await fetch(`${host}/api/posts/fetchallposts`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

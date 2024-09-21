@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Profile = () => {
 
-    const host = import.meta.env.VITE_HOST || 3000;
+    const host = import.meta.env.VITE_HOST;
 
     const navigate = useNavigate()
 
@@ -17,7 +17,7 @@ const Profile = () => {
     const authToken = localStorage.getItem('authToken')
 
     const getUser = async () => {
-        const response = await fetch(`http://localhost:${host}/api/auth/getuser`, {
+        const response = await fetch(`${host}/api/auth/getuser`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ const Profile = () => {
 
     const handleSave = async (e) => {
         e.preventDefault()
-        const response = await fetch(`http://localhost:${host}/api/auth/updateuser`, {
+        const response = await fetch(`${host}/api/auth/updateuser`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

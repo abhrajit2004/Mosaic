@@ -9,7 +9,7 @@ const PostPage = () => {
   const [comments, setComments] = useState([])
   const params = useParams()
 
-  const host = import.meta.env.VITE_HOST || 3000;
+  const host = import.meta.env.VITE_HOST;
 
 
   useEffect(() => {
@@ -44,7 +44,7 @@ const PostPage = () => {
   
 
   const getParticularPost = async (id) => {
-    const response = await fetch(`http://localhost:${host}/api/posts/fetchpost/${id}`, {
+    const response = await fetch(`${host}/api/posts/fetchpost/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -55,7 +55,7 @@ const PostPage = () => {
   }
 
   const getUser = async () => {
-    const response = await fetch(`http://localhost:${host}/api/auth/getuser`, {
+    const response = await fetch(`${host}/api/auth/getuser`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

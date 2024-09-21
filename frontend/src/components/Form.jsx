@@ -8,7 +8,7 @@ const Form = () => {
 
   const params = useParams()
 
-  const host = import.meta.env.VITE_HOST || 3000;
+  const host = import.meta.env.VITE_HOST;
 
 
   const navigate = useNavigate()
@@ -37,7 +37,7 @@ const Form = () => {
   
   const handleSignup = async (e) => {
     e.preventDefault();
-    const response = await fetch(`http://localhost:${host}/api/auth/${params.id}`, {
+    const response = await fetch(`${host}/api/auth/${params.id}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -60,7 +60,7 @@ const Form = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    const response = await fetch(`http://localhost:${host}/api/auth/${params.id}`, {
+    const response = await fetch(`${host}/api/auth/${params.id}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

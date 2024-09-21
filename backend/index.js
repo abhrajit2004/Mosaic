@@ -9,7 +9,14 @@ const port = process.env.PORT || 3000
 connectToMongo();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors(
+  {
+    origin: "https://mosaic-zeta-flax.vercel.app/",
+    credentials: true,
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  }
+));
 
 app.get('/', (req, res) => {
   res.send('Hello Abhrajit!')
