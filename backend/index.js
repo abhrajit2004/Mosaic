@@ -11,7 +11,7 @@ connectToMongo();
 app.use(express.json());
 
 app.use(cors({
-  origin: 'https://mosaic-by-abhrajit.vercel.app',
+  origin: 'mosaic-backend.vercel.app',
   credentials: true,
   maxAge: 86400,
   allowedHeaders: ['Content-Type', 'auth-token'],
