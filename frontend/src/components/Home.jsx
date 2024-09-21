@@ -5,18 +5,21 @@ import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
 
+  const host = import.meta.env.VITE_HOST || 3000;
+
   const navigate = useNavigate()
 
   const [posts, setPosts] = useState([])
 
   useEffect(() => {
     getAllPosts()
+    
 
     document.title = 'Mosaic - A Social Media Platform for Techies'
   }, [])
 
   const getAllPosts = async () => {
-    const response = await fetch('http://localhost:3000/api/posts/fetchallposts', {
+    const response = await fetch(`http://localhost:${host}/api/posts/fetchallposts`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

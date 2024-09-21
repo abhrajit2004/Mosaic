@@ -3,14 +3,13 @@ const express = require('express')
 const connectToMongo = require('./connectDb')
 const app = express()
 const cors = require('cors')
-const port = 3000
+const port = process.env.PORT || 3000
+
 
 connectToMongo();
 
 app.use(express.json());
 app.use(cors());
-
-
 
 app.get('/', (req, res) => {
   res.send('Hello Abhrajit!')
