@@ -8,18 +8,15 @@ const port = process.env.PORT || 3000
 
 connectToMongo();
 
-app.use(express.json());
-
 app.use(cors({
+  origin: ["http://localhost:5173","https://mosaic-by-abhrajit.vercel.app"],
+  methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
-  maxAge: 86400,
-  allowedHeaders: ['Content-Type', 'auth-token'],
-  exposedHeaders: ['auth-token'],
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  optionsSuccessStatus: 200,
 }));
 
 app.options('*', cors());
+
+app.use(express.json());
 
 app.get('/', (req, res) => {
   res.send('Hello Abhrajit!')
