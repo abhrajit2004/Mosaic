@@ -5,9 +5,6 @@ const app = express()
 const cors = require('cors')
 const port = process.env.PORT || 3000
 
-
-connectToMongo();
-
 app.use(cors({
   origin: ["http://localhost:5173","https://mosaic-by-abhrajit.vercel.app"],
   methods: ["GET", "POST", "PUT", "DELETE"],
@@ -17,6 +14,8 @@ app.use(cors({
 app.options('*', cors());
 
 app.use(express.json());
+
+connectToMongo();
 
 app.get('/', (req, res) => {
   res.send('Hello Abhrajit!')
