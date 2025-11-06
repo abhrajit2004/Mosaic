@@ -26,8 +26,6 @@ app.get('/', (req, res) => {
 app.use("/api/auth", require("./routes/auth"))
 app.use("/api/posts", require("./routes/posts"))
 
-if (process.env.NODE_ENV !== "production") {
-  app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-  })
-}
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
